@@ -1,0 +1,253 @@
+@import 'tailwindcss';
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Archivo Black', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+
+  --color-goog-blue: var(--goog-blue);
+  --color-goog-red: var(--goog-red);
+  --color-goog-yellow: var(--goog-yellow);
+  --color-goog-green: var(--goog-green);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  
+
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+}
+
+:root {
+  color-scheme: light;
+
+  /* Google palette */
+  --goog-blue: oklch(0.62 0.19 260);
+  --goog-red: oklch(0.6 0.22 27);
+  --goog-yellow: oklch(0.83 0.16 84);
+  --goog-green: oklch(0.62 0.16 148);
+
+  --ink: oklch(0.14 0 0);
+  --paper: oklch(0.97 0.01 95);
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --primary: var(--goog-blue);
+  --primary-foreground: oklch(1 0 0);
+  --muted: oklch(0.93 0.01 95);
+  --muted-foreground: oklch(0.42 0 0);
+  --border: var(--ink);
+  --radius: 0px;
+}
+
+.dark {
+  color-scheme: dark;
+
+  /* Deep cool charcoal — not pure black, avoids harsh contrast */
+  --paper: oklch(0.12 0.010 255);
+  /* Warm off-white — easy on eyes, feels natural on dark */
+  --ink: oklch(0.93 0.006 85);
+
+  /* Cards noticeably elevated above background */
+  --card: oklch(0.20 0.009 255);
+  --card-foreground: oklch(0.93 0.006 85);
+
+  /* Colored buttons still need dark text to stay legible */
+  --primary-foreground: oklch(0.12 0.010 255);
+
+  /* Muted surfaces */
+  --muted: oklch(0.23 0.007 255);
+  --muted-foreground: oklch(0.75 0.012 255);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  /* Dark mode body gradient — adds subtle depth without changing base color */
+  .dark body {
+    background-image: radial-gradient(
+      ellipse 120% 55% at 50% 0%,
+      oklch(0.16 0.018 255 / 0.6),
+      transparent 65%
+    );
+  }
+  ::selection {
+    background: var(--goog-yellow);
+    color: var(--ink);
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  /* --- Neo-brutalist primitives --- */
+  .brut {
+    border: 3px solid var(--ink);
+    box-shadow: 6px 6px 0 0 var(--ink);
+  }
+  .brut-sm {
+    border: 3px solid var(--ink);
+    box-shadow: 3px 3px 0 0 var(--ink);
+  }
+  .brut-lg {
+    border: 4px solid var(--ink);
+    box-shadow: 10px 10px 0 0 var(--ink);
+  }
+  .brut-hover {
+    transition:
+      transform 140ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 140ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .brut-hover:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 10px 10px 0 0 var(--ink);
+  }
+  .brut-press:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0 0 0 0 var(--ink);
+  }
+
+  /* Dark mode: soften shadow intensity so it reads as depth, not glow */
+  .dark .brut {
+    box-shadow: 6px 6px 0 0 oklch(0.93 0.006 85 / 0.65);
+  }
+  .dark .brut-sm {
+    box-shadow: 3px 3px 0 0 oklch(0.93 0.006 85 / 0.65);
+  }
+  .dark .brut-lg {
+    box-shadow: 10px 10px 0 0 oklch(0.93 0.006 85 / 0.65);
+  }
+  .dark .brut-hover:hover {
+    box-shadow: 10px 10px 0 0 oklch(0.93 0.006 85 / 0.65);
+  }
+
+  .grid-paper {
+    background-image:
+      linear-gradient(to right, oklch(0.14 0 0 / 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(0.14 0 0 / 0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .dark .grid-paper {
+    background-image:
+      linear-gradient(to right, oklch(0.97 0.01 95 / 0.10) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(0.97 0.01 95 / 0.10) 1px, transparent 1px);
+  }
+
+  .dots {
+    background-image: radial-gradient(oklch(0.14 0 0 / 0.18) 1.5px, transparent 1.5px);
+    background-size: 14px 14px;
+  }
+  .dark .dots {
+    background-image: radial-gradient(oklch(0.97 0.01 95 / 0.22) 1.5px, transparent 1.5px);
+  }
+
+  .stripes {
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--ink) 0 6px,
+      transparent 6px 12px
+    );
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 2px var(--ink);
+    color: transparent;
+  }
+
+  .text-ink-static {
+    color: oklch(0.14 0 0); /* Force hardcoded near-black for yellow backgrounds */
+  }
+
+  .shadow-text-hard {
+    text-shadow: 4px 4px 0 var(--ink);
+  }
+}
+
+/* --- Animations --- */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee-x 28s linear infinite;
+}
+.animate-marquee-fast {
+  animation: marquee-x 16s linear infinite;
+}
+.animate-marquee-reverse {
+  animation: marquee-x 28s linear infinite reverse;
+}
+
+@keyframes blink-cursor {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+.animate-cursor {
+  animation: blink-cursor 1s steps(1) infinite;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--tw-rotate, 0deg));
+  }
+  50% {
+    transform: translateY(-10px) rotate(var(--tw-rotate, 0deg));
+  }
+}
+.animate-float {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 14s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
