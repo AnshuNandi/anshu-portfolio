@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Check, Copy, Mail, Phone, Send } from 'lucide-react'
+import { Check, Copy, Mail, Phone, Send, Loader2 } from 'lucide-react'
 import { profile } from '@/lib/data'
 import { DiscordIcon, GithubIcon, LeetcodeIcon, LinkedinIcon } from './brand-icons'
 import { Section, SectionHeading } from './brutal'
@@ -32,6 +32,7 @@ const socials = [
 export function Contact() {
   const [copied, setCopied] = useState(false)
   const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
   const copyEmail = async () => {
     try {
@@ -43,13 +44,36 @@ export function Contact() {
     }
   }
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const subject = encodeURIComponent(`Portfolio enquiry from ${form.name || 'someone'}`)
-    const body = encodeURIComponent(
-      `${form.message}\n\n— ${form.name}\nReply to: ${form.email}`,
-    )
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`
+    if (status === 'loading') return
+    
+    setStatus('loading')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to send message')
+      }
+
+      setStatus('success')
+      setForm({ name: '', email: '', message: '' })
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => setStatus('idle'), 5000)
+    } catch (error) {
+      console.error(error)
+      setStatus('error')
+      // Reset error state after a few seconds
+      setTimeout(() => setStatus('idle'), 3000)
+    }
   }
 
   const field =
@@ -201,13 +225,33 @@ export function Contact() {
             </label>
             <button
               type="submit"
-              className="brut brut-hover brut-press inline-flex items-center justify-center gap-2 bg-goog-blue px-5 py-3 font-display text-sm uppercase tracking-wide text-primary-foreground"
+              disabled={status === 'loading' || status === 'success'}
+              className="brut brut-hover brut-press inline-flex items-center justify-center gap-2 bg-goog-blue px-5 py-3 font-display text-sm uppercase tracking-wide text-primary-foreground disabled:opacity-50 disabled:pointer-events-none"
             >
-              Send via email
-              <Send className="size-4" strokeWidth={3} />
+              {status === 'loading' ? (
+                <>
+                  Sending...
+                  <Loader2 className="size-4 animate-spin" strokeWidth={3} />
+                </>
+              ) : status === 'success' ? (
+                <>
+                  Sent!
+                  <Check className="size-4" strokeWidth={3} />
+                </>
+              ) : status === 'error' ? (
+                <>
+                  Failed! Try again
+                  <Send className="size-4" strokeWidth={3} />
+                </>
+              ) : (
+                <>
+                  Send Message
+                  <Send className="size-4" strokeWidth={3} />
+                </>
+              )}
             </button>
-            <p className="font-mono text-[11px] leading-relaxed text-muted-foreground">
-              This opens your mail client with the message pre-filled — no data is stored.
+            <p className="font-mono text-[11px] leading-relaxed text-muted-foreground text-center">
+              Your message will be sent directly to my inbox.
             </p>
           </form>
         </div>
