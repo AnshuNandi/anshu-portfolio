@@ -31,6 +31,7 @@ export async function getGithubStats() {
     langs: null,
     totalContributions: null,
     prPercentage: null,
+    commitPercentage: null,
     weeks: null,
     repos: null
   };

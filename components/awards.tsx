@@ -100,7 +100,9 @@ export async function Awards() {
             <div className="overflow-x-auto p-4 custom-scrollbar">
               <ContributionGrid weeks={stats.weeks} />
               <p className="mt-3 font-mono text-[11px] text-muted-foreground">
-                Live contribution rhythm · {stats.totalRepos} repositories{stats.prPercentage !== null ? ` · ${stats.prPercentage}% pull requests` : ''}
+                Live contribution rhythm · {stats.totalRepos} repositories
+                {stats.commitPercentage !== null ? ` · ${stats.commitPercentage}% commits` : ''}
+                {stats.prPercentage !== null ? ` · ${stats.prPercentage}% pull requests` : ''}
               </p>
             </div>
           </div>

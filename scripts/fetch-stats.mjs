@@ -114,8 +114,10 @@ async function run() {
     
     const totalActivity = prs + commits + issues + reviews;
     let prPercentage = 0;
+    let commitPercentage = 0;
     if (totalActivity > 0) {
       prPercentage = Math.round((prs / totalActivity) * 100);
+      commitPercentage = Math.round((commits / totalActivity) * 100);
     }
 
     const langCounts = {};
@@ -175,6 +177,7 @@ async function run() {
       langs,
       totalContributions,
       prPercentage,
+      commitPercentage,
       weeks,
       repos,
       lastUpdated: new Date().toISOString()
