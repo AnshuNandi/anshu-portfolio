@@ -14,7 +14,7 @@ export async function POST(request: Request) {
 
     const { data, error } = await resend.emails.send({
       from: 'Portfolio Contact Form <onboarding@resend.dev>',
-      to: process.env.CONTACT_EMAIL || 'cse2023216@rcciit.org.in',
+      to: process.env.CONTACT_EMAIL || 'anshu.nandi07@gmail.com',
       replyTo: email,
       subject: `New message from ${name} via Portfolio`,
       text: `You have received a new message from your portfolio website.\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
