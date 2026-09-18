@@ -80,9 +80,11 @@ export function Contact() {
     'w-full border-[3px] border-ink bg-background px-3 py-2.5 font-sans text-sm outline-none placeholder:text-muted-foreground focus:bg-goog-yellow/25 focus:ring-0'
 
   return (
-    <Section id="contact" className="relative border-b-[3px] border-ink bg-muted">
-      <div aria-hidden="true" className="dots pointer-events-none absolute inset-0 opacity-60" />
-      <div className="relative flex flex-col gap-10">
+    <Section id="contact" className="relative border-b-[3px] border-ink bg-muted overflow-hidden">
+      {/* backdrop */}
+      <div aria-hidden="true" className="grid-paper absolute inset-0" />
+      
+      <div className="relative z-10 flex flex-col gap-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading index="06" kicker="Say hello" title="Let's build something" color="green" />
           <p className="max-w-sm text-pretty leading-relaxed text-muted-foreground">
@@ -94,7 +96,7 @@ export function Contact() {
         <div className="grid gap-6 lg:grid-cols-[1fr_1fr]">
           {/* details */}
           <div className="flex flex-col gap-4">
-            <div className="brut bg-ink p-5 text-paper dark:bg-zinc-800 dark:text-zinc-50">
+            <div className="brut brut-hover bg-ink p-5 text-paper dark:bg-zinc-800 dark:text-zinc-50">
               <p className="font-mono text-[11px] font-bold tracking-widest uppercase text-goog-yellow">
                 Email
               </p>
@@ -181,7 +183,7 @@ export function Contact() {
           </div>
 
           {/* form */}
-          <form onSubmit={onSubmit} className="brut flex flex-col gap-4 bg-card p-5 sm:p-6">
+          <form onSubmit={onSubmit} className="brut brut-hover flex flex-col gap-4 bg-card p-5 sm:p-6">
             <h3 className="font-display text-xl uppercase leading-none">Drop a message</h3>
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="flex flex-col gap-1.5">

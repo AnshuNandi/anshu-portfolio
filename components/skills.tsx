@@ -13,9 +13,11 @@ const icons: Record<string, LucideIcon> = {
 
 export function Skills() {
   return (
-    <Section id="skills" className="relative border-b-[3px] border-ink bg-muted">
-      <div aria-hidden="true" className="dots pointer-events-none absolute inset-0 opacity-60" />
-      <div className="relative flex flex-col gap-10">
+    <Section id="skills" className="relative border-b-[3px] border-ink bg-muted overflow-hidden">
+      {/* backdrop */}
+      <div aria-hidden="true" className="dots absolute inset-0 opacity-50" />
+      
+      <div className="relative z-10 flex flex-col gap-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading index="02" kicker="Toolbox" title="Stack & skills" color="red" />
           <p className="max-w-sm text-pretty leading-relaxed text-muted-foreground">

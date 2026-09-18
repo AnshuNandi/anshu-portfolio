@@ -5,8 +5,11 @@ import { cn } from '@/lib/utils'
 
 export function Experience() {
   return (
-    <Section id="work" className="border-b-[3px] border-ink">
-      <div className="flex flex-col gap-10">
+    <Section id="work" className="relative border-b-[3px] border-ink overflow-hidden">
+      {/* backdrop */}
+      <div aria-hidden="true" className="diagonal-grid absolute inset-0 opacity-50" />
+
+      <div className="relative z-10 flex flex-col gap-12">
         <SectionHeading index="03" kicker="Experience" title="Where I've built" color="green" />
 
         <ol className="relative flex flex-col gap-8 border-l-[3px] border-ink pl-6 sm:pl-10">
@@ -19,7 +22,7 @@ export function Experience() {
                   swatch[e.color].bg,
                 )}
               />
-              <article className="brut bg-card">
+              <article className="brut brut-hover bg-card">
                 <div className="flex flex-wrap items-center gap-3 border-b-[3px] border-ink bg-goog-blue px-4 py-3 text-primary-foreground">
                   <Briefcase className="size-5 shrink-0" strokeWidth={2.75} />
                   <h3 className="font-display text-base uppercase leading-tight sm:text-xl">

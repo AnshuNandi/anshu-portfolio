@@ -5,17 +5,20 @@ import { cn } from '@/lib/utils'
 
 export function About() {
   return (
-    <Section id="about" className="border-b-[3px] border-ink">
-      <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
+    <Section id="about" className="relative border-b-[3px] border-ink overflow-hidden">
+      {/* backdrop */}
+      <div aria-hidden="true" className="diagonal-grid absolute inset-0" />
+      
+      <div className="relative z-10 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
         <div className="flex flex-col gap-6">
           <SectionHeading index="01" kicker="Who am I" title="About the human" color="blue" />
-          <Card className="bg-goog-blue p-5 text-primary-foreground">
+          <Card hover className="bg-goog-blue p-5 text-primary-foreground">
             <Quote className="size-7" strokeWidth={3} />
             <p className="mt-3 font-display text-xl leading-tight uppercase text-balance">
               Ship systems that are as well-designed on the inside as they look on the outside.
             </p>
           </Card>
-          <Card className="flex items-start gap-4 p-5">
+          <Card hover className="flex items-start gap-4 p-5">
             <span className="brut-sm grid size-11 shrink-0 place-items-center bg-goog-green text-primary-foreground">
               <GraduationCap className="size-5" strokeWidth={2.5} />
             </span>
@@ -35,7 +38,7 @@ export function About() {
         </div>
 
         <div className="flex flex-col gap-6">
-          <div className="brut bg-card p-5 sm:p-7">
+          <div className="brut brut-hover bg-card p-5 sm:p-7">
             {about.paragraphs.map((p, i) => (
               <p
                 key={i}

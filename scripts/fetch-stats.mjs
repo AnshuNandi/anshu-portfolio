@@ -145,12 +145,12 @@ async function run() {
 
     const sortedLangs = Object.entries(langCounts)
       .sort((a, b) => b[1].size - a[1].size)
-      .slice(0, 4);
+      .slice(0, 6);
       
-    const langs = sortedLangs.map(([name, data]) => ({
+    const langs = sortedLangs.map(([name, data], index) => ({
       name,
       pct: Math.round((data.size / totalSize) * 100),
-      color: name === 'Python' ? 'bg-goog-blue' : name.includes('TypeScript') || name.includes('JavaScript') ? 'bg-goog-yellow' : name.includes('Jupyter') ? 'bg-goog-red' : 'bg-goog-green',
+      color: ['bg-goog-blue', 'bg-goog-yellow', 'bg-goog-red', 'bg-goog-green'][index % 4],
     }));
 
     // Format repos for the frontend
@@ -176,6 +176,7 @@ async function run() {
       totalRepos,
       langs,
       totalContributions,
+      totalCommits: commits,
       prPercentage,
       commitPercentage,
       weeks,

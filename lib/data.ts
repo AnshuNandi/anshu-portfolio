@@ -36,7 +36,7 @@ export const roles = [
 export const stats = [
   { label: 'Contributions / yr', value: '550+', color: 'blue' as GoogColor },
   { label: 'Total Repos', value: '25', color: 'red' as GoogColor },
-  { label: 'CGPA (5th Sem)', value: '8.70', color: 'yellow' as GoogColor },
+  { label: 'CGPA (6th Sem)', value: '8.60', color: 'yellow' as GoogColor },
   { label: 'Contest Podiums', value: '02', color: 'green' as GoogColor },
 ]
 
@@ -177,7 +177,7 @@ export const education = [
     school: 'RCC Institute of Information Technology',
     degree: 'B.Tech, Computer Science & Engineering',
     period: "Aug '23 – Jun '27",
-    detail: 'CGPA 8.70 / 10 (till 5th semester)',
+    detail: 'CGPA 8.60 / 10 (till 6th semester)',
     color: 'green' as GoogColor,
   },
 ]
@@ -267,20 +267,6 @@ export const achievements = [
     org: 'Dept. of CSE, RCCIIT',
     date: "Oct '24",
     color: 'red' as GoogColor,
-  },
-  {
-    place: '★',
-    title: 'Pull Shark ×2',
-    org: 'GitHub Achievement',
-    date: 'Lifetime',
-    color: 'yellow' as GoogColor,
-  },
-  {
-    place: '★',
-    title: 'YOLO',
-    org: 'GitHub Achievement',
-    date: 'Lifetime',
-    color: 'green' as GoogColor,
   },
 ]
 
