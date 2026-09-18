@@ -10,6 +10,10 @@ const query = `
   query {
     viewer {
       contributionsCollection {
+        totalCommitContributions
+        totalIssueContributions
+        totalPullRequestContributions
+        totalPullRequestReviewContributions
         contributionCalendar {
           totalContributions
           weeks {
@@ -19,12 +23,6 @@ const query = `
             }
           }
         }
-      }
-      pullRequests {
-        totalCount
-      }
-      issues {
-        totalCount
       }
       repositories(ownerAffiliations: OWNER, isFork: false, first: 100, privacy: PUBLIC) {
         totalCount
@@ -109,12 +107,15 @@ async function run() {
     const totalContributions = viewer.contributionsCollection.contributionCalendar.totalContributions;
     const weeks = viewer.contributionsCollection.contributionCalendar.weeks;
     const totalRepos = viewer.repositories.totalCount + (viewer.privateRepos?.totalCount || 0);
-    const prs = viewer.pullRequests.totalCount;
-    const issues = viewer.issues.totalCount;
+    const prs = viewer.contributionsCollection.totalPullRequestContributions;
+    const commits = viewer.contributionsCollection.totalCommitContributions;
+    const issues = viewer.contributionsCollection.totalIssueContributions;
+    const reviews = viewer.contributionsCollection.totalPullRequestReviewContributions;
     
+    const totalActivity = prs + commits + issues + reviews;
     let prPercentage = 0;
-    if (prs + issues > 0) {
-      prPercentage = Math.round((prs / (prs + issues)) * 100);
+    if (totalActivity > 0) {
+      prPercentage = Math.round((prs / totalActivity) * 100);
     }
 
     const langCounts = {};
