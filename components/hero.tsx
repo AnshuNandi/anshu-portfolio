@@ -40,7 +40,7 @@ export async function Hero() {
       
       <div
         aria-hidden="true"
-        className="absolute top-[65%] -right-8 hidden lg:flex size-48 items-center justify-center gear-shadow"
+        className="absolute top-[60%] -right-8 hidden lg:flex size-48 items-center justify-center gear-shadow"
       >
         <svg 
           viewBox="0 0 100 100" 
