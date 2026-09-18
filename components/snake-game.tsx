@@ -23,20 +23,17 @@ export function SnakeGame({ weeks }: { weeks?: any[] }) {
   dirRef.current = direction
 
   // If no weeks are provided (e.g. local dev without env vars), generate deterministic fake data
-  let effectiveWeeks = weeks;
-  if (!weeks || weeks.length === 0) {
-    effectiveWeeks = Array.from({ length: 52 }, (_, w) => ({
-      contributionDays: Array.from({ length: 7 }, (_, d) => {
-        const seed = (w * 7 + d) * 12.9898;
-        const s = Math.sin(seed) * 43758.5453;
-        const val = Math.floor((s - Math.floor(s)) * 10);
-        return {
-          contributionCount: val > 6 ? val * 2 : (val > 4 ? 2 : 0),
-          date: 'Fallback'
-        };
-      })
-    }));
-  }
+  const effectiveWeeks = weeks && weeks.length > 0 ? weeks : Array.from({ length: 52 }, (_, w) => ({
+    contributionDays: Array.from({ length: 7 }, (_, d) => {
+      const seed = (w * 7 + d) * 12.9898;
+      const s = Math.sin(seed) * 43758.5453;
+      const val = Math.floor((s - Math.floor(s)) * 10);
+      return {
+        contributionCount: val > 6 ? val * 2 : (val > 4 ? 2 : 0),
+        date: 'Fallback'
+      };
+    })
+  }));
 
   // GitHub logic: calculate percentiles of non-zero days for coloring
   const nonZeroCounts = effectiveWeeks
@@ -257,29 +254,31 @@ export function SnakeGame({ weeks }: { weeks?: any[] }) {
       >
         {/* Game Over / Win — compact, styled */}
         {isPlaying && (gameOver || won) ? (
-          <div className="flex items-center gap-4 py-4 px-3 bg-muted/40 border border-border">
-            {/* Coloured accent bar */}
-            <div className={cn("w-1 self-stretch shrink-0 rounded-full", won ? "bg-goog-green" : "bg-goog-red")} />
+          <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-4 py-4 px-3 bg-muted/40 border border-border">
+            <div className="flex items-center gap-4">
+              {/* Coloured accent bar */}
+              <div className={cn("w-1 self-stretch shrink-0 rounded-full", won ? "bg-goog-green" : "bg-goog-red")} />
 
-            {/* Text stack */}
-            <div className="flex flex-col gap-0.5">
-              <span className="font-mono text-[8px] uppercase tracking-[0.25em] text-muted-foreground">
-                {won ? '— session complete —' : '— session ended —'}
-              </span>
-              <p className={cn(
-                "font-display text-xl uppercase tracking-widest leading-none",
-                won ? "text-goog-green" : "text-goog-red"
-              )}>
-                {won ? 'Perfect!' : 'Game Over'}
-              </p>
-              <div className="flex items-baseline gap-1.5 mt-0.5">
-                <span className="font-mono text-[8px] uppercase tracking-widest text-muted-foreground">Score</span>
-                <span className="font-display text-2xl text-goog-yellow leading-none">{score}</span>
+              {/* Text stack */}
+              <div className="flex flex-col gap-0.5">
+                <span className="font-mono text-[8px] uppercase tracking-[0.25em] text-muted-foreground">
+                  {won ? '— session complete —' : '— session ended —'}
+                </span>
+                <p className={cn(
+                  "font-display text-xl uppercase tracking-widest leading-none",
+                  won ? "text-goog-green" : "text-goog-red"
+                )}>
+                  {won ? 'Perfect!' : 'Game Over'}
+                </p>
+                <div className="flex items-baseline gap-1.5 mt-0.5">
+                  <span className="font-mono text-[8px] uppercase tracking-widest text-muted-foreground">Score</span>
+                  <span className="font-display text-2xl text-goog-yellow leading-none">{score}</span>
+                </div>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="ml-auto flex items-center gap-2 shrink-0">
+            <div className="flex items-center gap-2 shrink-0 w-full sm:w-auto justify-end mt-1 sm:mt-0">
               <button
                 onClick={quitGame}
                 className="brut-sm brut-hover flex items-center gap-1.5 px-3 py-2 font-display text-xs uppercase tracking-widest bg-muted text-muted-foreground"
