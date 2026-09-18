@@ -52,6 +52,7 @@ const query = `
         }
       }
       privateRepos: repositories(ownerAffiliations: OWNER, isFork: false, first: 100, privacy: PRIVATE) {
+        totalCount
         nodes {
           name
           description
@@ -107,7 +108,7 @@ async function run() {
     // 2. Process data
     const totalContributions = viewer.contributionsCollection.contributionCalendar.totalContributions;
     const weeks = viewer.contributionsCollection.contributionCalendar.weeks;
-    const totalRepos = viewer.repositories.totalCount;
+    const totalRepos = viewer.repositories.totalCount + (viewer.privateRepos?.totalCount || 0);
     const prs = viewer.pullRequests.totalCount;
     const issues = viewer.issues.totalCount;
     
@@ -124,6 +125,10 @@ async function run() {
     allRepos.forEach((repo) => {
       repo.languages?.edges?.forEach((edge) => {
         const name = edge.node.name;
+        
+        // Exclude Jupyter Notebook
+        if (name === 'Jupyter Notebook') return;
+        
         const size = edge.size;
         const color = edge.node.color;
         
