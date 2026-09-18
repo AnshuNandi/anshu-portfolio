@@ -9,7 +9,7 @@ export async function Hero() {
   const ghStats = await getGithubStats();
   
   const displayStats = stats.map((s, i) => {
-    if (i === 0 && ghStats.totalContributions) return { ...s, value: `${ghStats.totalContributions}+` };
+    if (i === 0 && ghStats.totalContributions) return { ...s, value: `${ghStats.totalContributions}` };
     if (i === 1 && ghStats.totalRepos) return { ...s, value: ghStats.totalRepos.toString() };
     return s;
   });
@@ -44,8 +44,8 @@ export async function Hero() {
       >
         <svg 
           viewBox="0 0 100 100" 
-          className="size-[85%] animate-spin-slow" 
-          fill="#ea4335" 
+          className="size-[85%] animate-spin-slow text-goog-red" 
+          fill="currentColor" 
           stroke="var(--ink)" 
           strokeWidth="3" 
           strokeLinejoin="miter"

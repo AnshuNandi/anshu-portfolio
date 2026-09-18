@@ -54,14 +54,19 @@ export async function Awards() {
             <div className="brut brut-hover bg-card min-w-0 h-full flex flex-col">
               <div className="flex flex-wrap items-center justify-between gap-3 border-b-[3px] border-ink bg-goog-green px-4 py-3">
                 <h3 className="font-display text-base uppercase text-primary-foreground">
-                  {stats.totalContributions ? `${stats.totalContributions}+ contributions this year` : `${stats.totalRepos} repositories`}
+                  {stats.totalContributions ? `${stats.totalContributions} contributions this year` : `${stats.totalRepos} repositories`}
                 </h3>
                 <span className="border-2 border-paper px-2 py-0.5 font-mono text-[10px] font-bold tracking-widest uppercase text-paper">
                   @{'AnshuNandi'}
                 </span>
               </div>
-              <div className="p-4 flex-1">
+              <div className="p-4 flex-1 flex flex-col">
                 <SnakeGame weeks={stats.weeks} />
+                <p className="mt-auto pt-4 font-mono text-[11px] text-muted-foreground">
+                  Live contribution rhythm · {stats.totalRepos} repositories
+                  {stats.commitPercentage !== null ? ` · ${stats.commitPercentage}% commits` : ''}
+                  {stats.prPercentage !== null ? ` · ${stats.prPercentage}% pull requests` : ''}
+                </p>
               </div>
             </div>
           </div>
