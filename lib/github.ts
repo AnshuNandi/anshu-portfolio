@@ -1,21 +1,26 @@
 export async function getGithubStats() {
   const gistId = process.env.GIST_ID;
+  const gistToken = process.env.GITHUB_TOKEN; // Read-Only Fine-Grained Token
 
   if (gistId) {
     try {
-      // Fetching from the raw CDN avoids the aggressive 60 req/hr GitHub API rate limits.
-      // It also requires zero secrets or tokens on the Vercel edge!
-      const res = await fetch(`https://gist.githubusercontent.com/raw/${gistId}/github-stats.json`, {
-        // Apply ISR cache tag so this can be revalidated on-demand by our webhook
-        next: { tags: ['github-stats'], revalidate: 86400 } // Revalidate daily fallback
+      const res = await fetch(`https://api.github.com/gists/${gistId}`, {
+        // Authenticated request guarantees fresh data and 5,000 req/hr limits
+        headers: gistToken ? { Authorization: `Bearer ${gistToken}` } : {},
+        // Standard Next.js ISR caching
+        next: { tags: ['github-stats'], revalidate: 86400 } 
       });
 
       if (res.ok) {
-        const stats = await res.json();
-        return stats;
+        const gist = await res.json();
+        const file = gist.files['github-stats.json'];
+        
+        if (file && file.content) {
+          return JSON.parse(file.content);
+        }
       }
     } catch (e) {
-      console.error('Failed to fetch stats from Gist CDN:', e);
+      console.error('Failed to fetch stats from GitHub API:', e);
     }
   }
 
