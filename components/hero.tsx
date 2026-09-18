@@ -159,16 +159,16 @@ export async function Hero() {
           {/* Badges */}
           <div
             aria-hidden="true"
-            className="absolute -top-6 left-2 z-20 hidden -rotate-6 border-[3px] border-ink bg-goog-yellow px-3 py-1.5 font-mono text-xs font-bold uppercase text-ink-static sm:block shadow-[4px_4px_0_0_#1e1e1e]"
+            className="absolute -top-6 left-2 z-20 -rotate-6 border-[3px] border-ink bg-goog-yellow px-3 py-1.5 font-mono text-xs font-bold uppercase text-ink-static shadow-[4px_4px_0_0_#1e1e1e]"
           >
             <Sparkles className="mr-1 inline size-3.5" strokeWidth={3} /> LangGraph pilot
           </div>
           
           <div
             aria-hidden="true"
-            className="absolute -bottom-2 -right-4 z-20 hidden rotate-6 border-[3px] border-ink bg-goog-green px-3 py-1.5 font-mono text-xs font-bold uppercase text-primary-foreground sm:block shadow-[4px_4px_0_0_#1e1e1e]"
+            className="absolute -bottom-2 -right-4 z-20 rotate-6 border-[3px] border-ink bg-goog-green px-3 py-1.5 font-mono text-xs font-bold uppercase text-primary-foreground shadow-[4px_4px_0_0_#1e1e1e]"
           >
-            {ghStats.totalCommits ? `${ghStats.totalCommits}+ commits / yr` : ghStats.totalContributions ? `${Math.round((ghStats.commitPercentage / 100) * ghStats.totalContributions)}+ commits / yr` : '550+ commits / yr'}
+            {ghStats.totalCommits ? `${ghStats.totalCommits} commits / yr` : ghStats.totalContributions ? `${Math.round((ghStats.commitPercentage / 100) * ghStats.totalContributions)} commits / yr` : '550 commits / yr'}
           </div>
         </div>
       </div>

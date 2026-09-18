@@ -81,6 +81,10 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+    cursor: url('/cursor.svg') 6 3, auto !important;
+  }
+  a, button, [role="button"], label, select, input[type="submit"], input[type="button"], input[type="checkbox"], input[type="radio"], .cursor-pointer {
+    cursor: url('/cursor-pointer.svg') 12 4, pointer !important;
   }
   /* Dark mode body gradient — adds subtle depth without changing base color */
   .dark body {
