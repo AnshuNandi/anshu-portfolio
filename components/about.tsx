@@ -78,19 +78,19 @@ export function About() {
           </div>
 
           {/* Semantic dl/dt/dd for key-value facts — correct HTML5 element per spec */}
-          <dl className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2">
             {about.facts.map((f) => (
-              <div key={f.k} className="brut brut-hover bg-card">
-                <div className={cn('h-2 border-b-[3px] border-ink', swatch[f.color].bg)} />
-                <div className="p-4">
+              <div key={f.k} className="brut brut-hover bg-card flex flex-col">
+                <div className={cn('h-2 border-b-[3px] border-ink shrink-0', swatch[f.color].bg)} aria-hidden="true" />
+                <dl className="p-4 m-0">
                   <dt className="font-mono text-[11px] font-bold tracking-widest uppercase text-muted-foreground">
                     {f.k}
                   </dt>
                   <dd className="mt-1 font-display text-sm leading-snug uppercase">{f.v}</dd>
-                </div>
+                </dl>
               </div>
             ))}
-          </dl>
+          </div>
         </div>
       </div>
     </Section>

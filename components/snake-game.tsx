@@ -321,7 +321,7 @@ export function SnakeGame({ weeks, children }: { weeks?: any[], children?: React
                     key={`${x}-${y}`}
                     title={!isPlaying ? `${day.contributionCount} contributions on ${day.date}` : undefined}
                     className={cn(
-                      'rounded-[2px] transition-all duration-75 border aspect-square',
+                      'rounded-[2px] transition duration-75 border aspect-square',
                       cellColor
                     )}
                   />
