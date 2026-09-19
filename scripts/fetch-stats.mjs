@@ -24,7 +24,7 @@ const query = `
           }
         }
       }
-      repositories(ownerAffiliations: OWNER, isFork: false, first: 100, privacy: PUBLIC) {
+      repositories(ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER], isFork: false, first: 100, privacy: PUBLIC) {
         totalCount
         nodes {
           name
@@ -49,7 +49,7 @@ const query = `
           }
         }
       }
-      privateRepos: repositories(ownerAffiliations: OWNER, isFork: false, first: 100, privacy: PRIVATE) {
+      privateRepos: repositories(ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER], isFork: false, first: 100, privacy: PRIVATE) {
         totalCount
         nodes {
           name
