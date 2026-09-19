@@ -149,7 +149,7 @@ async function run() {
       
     const langs = sortedLangs.map(([name, data], index) => ({
       name,
-      pct: Math.round((data.size / totalSize) * 100),
+      pct: Number(((data.size / totalSize) * 100).toFixed(1)),
       color: ['bg-goog-blue', 'bg-goog-yellow', 'bg-goog-red', 'bg-goog-green'][index % 4],
     }));
 

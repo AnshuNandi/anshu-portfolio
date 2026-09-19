@@ -30,6 +30,7 @@ export const profile = {
 export const roles = [
   'Agentic AI Engineer',
   'Full-Stack Architect',
+  'MERN Stack Developer',
   'MLOps Practitioner',
   'LangGraph Wrangler',
   'Competitive Programmer',
@@ -285,6 +286,7 @@ export const marqueeWords = [
   'POSTGRESQL',
   'DOCKER',
   'REDIS',
+  'MERN',
 ]
 
 export const navLinks = [
