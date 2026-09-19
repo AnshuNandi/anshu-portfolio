@@ -25,10 +25,9 @@ export async function Hero() {
         <div className="absolute top-[20%] -left-[60px] md:-left-[100px] w-[100px] md:w-[150px] h-[200px] md:h-[300px] rounded-r-full bg-[var(--goog-red)] opacity-20" />
         
         {/* Subtle grid of yellow crosses (+) on the far right */}
-        <div className="absolute top-[5%] right-[2%] w-[200px] md:w-[400px] h-[200px] md:h-[400px] opacity-[0.25]"
+        <div className="absolute top-[5%] right-[2%] w-[200px] md:w-[400px] h-[200px] md:h-[400px] opacity-[0.25] bg-[length:24px_24px] md:bg-[length:40px_40px]"
              style={{ 
-               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M18 10v20h4V10zM10 18v4h20v-4z' fill='%23fbbc05' /%3E%3C/svg%3E")`, 
-               backgroundSize: '40px 40px' 
+               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M18 10v20h4V10zM10 18v4h20v-4z' fill='%23fbbc05' /%3E%3C/svg%3E")`
              }} />
       </div>
       

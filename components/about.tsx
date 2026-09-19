@@ -18,10 +18,9 @@ export function About() {
         <div className="absolute top-[10%] -right-[100px] md:-right-[150px] w-[200px] md:w-[300px] h-[200px] md:h-[300px] rounded-full border-[4px] md:border-[8px] border-[var(--goog-green)] opacity-30" />
         
         {/* Subtle red plus grid on the bottom right edge */}
-        <div className="absolute bottom-[20%] right-[2%] w-[100px] md:w-[150px] h-[100px] md:h-[150px] opacity-[0.25]"
+        <div className="absolute -bottom-[10%] -right-[5%] w-[150px] md:w-[300px] h-[150px] md:h-[300px] opacity-[0.15] bg-[length:18px_18px] md:bg-[length:30px_30px]"
              style={{ 
-               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M14 6v18h2V6zM6 14v2h18v-2z' fill='%23ea4335' /%3E%3C/svg%3E")`, 
-               backgroundSize: '30px 30px' 
+               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M13 7v16h4V7zM7 13v4h16v-4z' fill='%23ea4335' /%3E%3C/svg%3E")`
              }} />
       </div>
       

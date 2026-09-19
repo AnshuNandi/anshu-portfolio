@@ -1,12 +1,12 @@
 "use client"
 
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback, useRef, ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 import { Gamepad2, X } from 'lucide-react'
 
 type Point = { x: number; y: number }
 
-export function SnakeGame({ weeks }: { weeks?: any[] }) {
+export function SnakeGame({ weeks, children }: { weeks?: any[], children?: ReactNode }) {
   const [isPlaying, setIsPlaying] = useState(false)
   const [snake, setSnake] = useState<Point[]>([])
   const [direction, setDirection] = useState<Point>({ x: 1, y: 0 })
@@ -221,7 +221,11 @@ export function SnakeGame({ weeks }: { weeks?: any[] }) {
   }, [isPlaying, gameOver, won, score, cols]);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div 
+      className={cn("flex flex-col gap-4 w-full", isPlaying ? "touch-none" : "")}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       {/* Header / Controls */}
       <div className="flex items-center justify-between">
         <h3 className="font-display text-sm font-bold uppercase text-muted-foreground tracking-widest">
@@ -247,11 +251,7 @@ export function SnakeGame({ weeks }: { weeks?: any[] }) {
       </div>
 
       {/* Grid Area — or Game Result Panel */}
-      <div
-        className={cn("relative w-full", isPlaying ? "touch-none" : "")}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-      >
+      <div className="relative w-full">
         {/* Game Over / Win — compact, styled */}
         {isPlaying && (gameOver || won) ? (
           <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-4 py-4 px-3 bg-muted/40 border border-border">
@@ -331,6 +331,7 @@ export function SnakeGame({ weeks }: { weeks?: any[] }) {
           </div>
         )}
       </div>
+      {children}
     </div>
   )
 }

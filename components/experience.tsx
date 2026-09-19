@@ -18,10 +18,9 @@ export function Experience() {
         <div className="absolute -bottom-[50px] md:-bottom-[100px] -left-[50px] md:-left-[100px] w-[150px] md:w-[300px] h-[150px] md:h-[300px] rounded-full border-[4px] md:border-[8px] border-[var(--goog-blue)] opacity-[0.25]" />
         
         {/* Green plus grid subtle on bottom right */}
-        <div className="absolute bottom-[5%] right-[2%] w-[75px] md:w-[150px] h-[75px] md:h-[150px] opacity-[0.25]"
+        <div className="absolute bottom-[5%] right-[2%] w-[75px] md:w-[150px] h-[75px] md:h-[150px] opacity-[0.25] bg-[length:18px_18px] md:bg-[length:30px_30px]"
              style={{ 
-               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M14 6v18h2V6zM6 14v2h18v-2z' fill='%2334a853' /%3E%3C/svg%3E")`, 
-               backgroundSize: '30px 30px' 
+               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M14 6v18h2V6zM6 14v2h18v-2z' fill='%2334a853' /%3E%3C/svg%3E")`
              }} />
       </div>
 

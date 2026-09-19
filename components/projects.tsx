@@ -14,19 +14,17 @@ export function Projects() {
         <div className="absolute -top-[50px] md:-top-[100px] -right-[50px] md:-right-[100px] w-[150px] md:w-[300px] h-[150px] md:h-[300px] bg-[var(--goog-yellow)] opacity-30 rounded-bl-full" />
         
         {/* Subtle green plus grid center right edge */}
-        <div className="absolute top-[50%] -right-[2%] w-[75px] md:w-[150px] h-[75px] md:h-[150px] opacity-40"
+        <div className="absolute top-[50%] -right-[2%] w-[75px] md:w-[150px] h-[75px] md:h-[150px] opacity-40 bg-[length:18px_18px] md:bg-[length:30px_30px]"
              style={{ 
-               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M14 6v18h2V6zM6 14v2h18v-2z' fill='%2334a853' /%3E%3C/svg%3E")`, 
-               backgroundSize: '30px 30px'
+               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M14 6v18h2V6zM6 14v2h18v-2z' fill='%2334a853' /%3E%3C/svg%3E")`
              }} />
         {/* Subtle blue hollow circle on far left edge */}
         <div className="absolute top-[20%] -left-[50px] md:-left-[100px] w-[100px] md:w-[200px] h-[100px] md:h-[200px] rounded-full border-[3px] md:border-[6px] border-[var(--goog-blue)] opacity-30" />
         
         {/* Subtle red plus grid on the bottom left edge */}
-        <div className="absolute bottom-[5%] left-[2%] w-[75px] md:w-[150px] h-[75px] md:h-[150px] opacity-30"
+        <div className="absolute bottom-[5%] left-[2%] w-[75px] md:w-[150px] h-[75px] md:h-[150px] opacity-30 bg-[length:18px_18px] md:bg-[length:30px_30px]"
              style={{ 
-               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M14 6v18h2V6zM6 14v2h18v-2z' fill='%23ea4335' /%3E%3C/svg%3E")`, 
-               backgroundSize: '30px 30px' 
+               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M14 6v18h2V6zM6 14v2h18v-2z' fill='%23ea4335' /%3E%3C/svg%3E")`
              }} />
       </div>
 

@@ -90,10 +90,9 @@ export function Contact() {
         <div className="absolute -bottom-[100px] md:-bottom-[200px] left-1/2 -translate-x-1/2 w-[300px] md:w-[600px] h-[150px] md:h-[300px] rounded-full bg-[var(--goog-green)] opacity-[0.12] blur-3xl" />
         
         {/* Blue plus grid tucked into the top left */}
-        <div className="absolute top-[5%] left-[2%] w-[100px] md:w-[200px] h-[100px] md:h-[200px] opacity-[0.20]"
+        <div className="absolute top-[5%] left-[2%] w-[100px] md:w-[200px] h-[100px] md:h-[200px] opacity-[0.20] bg-[length:24px_24px] md:bg-[length:40px_40px]"
              style={{ 
-               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M18 10v20h4V10zM10 18v4h20v-4z' fill='%234285f4' /%3E%3C/svg%3E")`, 
-               backgroundSize: '40px 40px' 
+               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M18 10v20h4V10zM10 18v4h20v-4z' fill='%234285f4' /%3E%3C/svg%3E")`
              }} />
              
         {/* Yellow quarter circle top right */}
