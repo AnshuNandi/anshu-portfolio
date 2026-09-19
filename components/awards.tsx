@@ -28,13 +28,13 @@ export async function Awards() {
         <div className="absolute -top-[25px] md:-top-[50px] -right-[25px] md:-right-[50px] w-[100px] md:w-[200px] h-[100px] md:h-[200px] rounded-bl-full bg-[var(--goog-red)] opacity-30" />
         
         {/* Subtle blue plus grid on the far left edge */}
-        <div className="absolute top-[20%] left-[2%] w-[75px] md:w-[150px] h-[75px] md:h-[150px] opacity-[0.25] bg-[length:18px_18px] md:bg-[length:30px_30px]"
+        <div className="absolute top-[20%] left-[2%] w-[72px] md:w-[150px] h-[72px] md:h-[150px] opacity-[0.25] bg-[length:18px_18px] md:bg-[length:30px_30px]"
              style={{ 
                backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M14 6v18h2V6zM6 14v2h18v-2z' fill='%234285f4' /%3E%3C/svg%3E")`
              }} />
         
         {/* Yellow plus grid subtle on bottom right */}
-        <div className="absolute bottom-[5%] right-[2%] w-[75px] md:w-[150px] h-[75px] md:h-[150px] opacity-[0.25] bg-[length:18px_18px] md:bg-[length:30px_30px]"
+        <div className="absolute bottom-[5%] right-[2%] w-[72px] md:w-[150px] h-[72px] md:h-[150px] opacity-[0.25] bg-[length:18px_18px] md:bg-[length:30px_30px]"
              style={{ 
                backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M14 6v18h2V6zM6 14v2h18v-2z' fill='%23fbbc05' /%3E%3C/svg%3E")`
              }} />
