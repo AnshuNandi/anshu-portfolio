@@ -40,11 +40,13 @@ export function About() {
             </span>
             <div>
               {education.map((e) => (
-                <div key={e.school} className="flex flex-col gap-1">
-                  <h3 className="font-display text-base uppercase leading-tight">{e.degree}</h3>
-                  <p className="text-sm font-medium">{e.school}</p>
+                <div key={e.school} itemScope itemType="https://schema.org/EducationalOccupationalCredential" className="flex flex-col gap-1">
+                  <h3 itemProp="name" className="font-display text-base uppercase leading-tight">{e.degree}</h3>
+                  <p itemProp="recognizedBy" className="text-sm font-medium">{e.school}</p>
                   <div className="flex flex-wrap items-center gap-2 pt-1">
-                    <Tag className="bg-goog-yellow text-ink-static">{e.period}</Tag>
+                    <Tag className="bg-goog-yellow text-ink-static">
+                      <time itemProp="temporal">{e.period}</time>
+                    </Tag>
                     <Tag>{e.detail}</Tag>
                   </div>
                 </div>
@@ -76,19 +78,20 @@ export function About() {
             </div>
           </div>
 
-          <ul className="grid gap-4 sm:grid-cols-2">
+          {/* Semantic dl/dt/dd for key-value facts — correct HTML5 element per spec */}
+          <dl className="grid gap-4 sm:grid-cols-2">
             {about.facts.map((f) => (
-              <li key={f.k} className="brut brut-hover bg-card">
+              <div key={f.k} className="brut brut-hover bg-card">
                 <div className={cn('h-2 border-b-[3px] border-ink', swatch[f.color].bg)} />
                 <div className="p-4">
-                  <p className="font-mono text-[11px] font-bold tracking-widest uppercase text-muted-foreground">
+                  <dt className="font-mono text-[11px] font-bold tracking-widest uppercase text-muted-foreground">
                     {f.k}
-                  </p>
-                  <p className="mt-1 font-display text-sm leading-snug uppercase">{f.v}</p>
+                  </dt>
+                  <dd className="mt-1 font-display text-sm leading-snug uppercase">{f.v}</dd>
                 </div>
-              </li>
+              </div>
             ))}
-          </ul>
+          </dl>
         </div>
       </div>
     </Section>

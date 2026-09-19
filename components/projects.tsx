@@ -36,7 +36,8 @@ export function Projects() {
           <a
             href={profile.github}
             target="_blank"
-            rel="noreferrer noopener"
+            rel="noopener noreferrer"
+            aria-label="View all GitHub repositories for Anshu Nandi"
             className="brut brut-hover brut-press inline-flex w-fit items-center gap-2 bg-ink px-4 py-3 font-display text-sm uppercase text-paper"
           >
             All 25 repos
@@ -48,6 +49,8 @@ export function Projects() {
           {projects.map((p) => (
             <article
               key={p.title}
+              itemScope
+              itemType="https://schema.org/SoftwareSourceCode"
               className={cn(
                 'brut brut-hover flex flex-col bg-card',
                 p.featured && 'md:col-span-2 md:flex-row',
@@ -77,11 +80,11 @@ export function Projects() {
 
               <div className="flex flex-1 flex-col gap-4 p-4 sm:p-6">
                 <div>
-                  <h3 className="font-display text-2xl uppercase leading-none sm:text-3xl">
+                  <h3 itemProp="name" className="font-display text-2xl uppercase leading-none sm:text-3xl">
                     {p.title}
                   </h3>
                   <p className={cn('mt-1 font-mono text-xs font-bold uppercase', swatch[p.color].text)}>
-                    {p.subtitle}
+                    <span itemProp="description">{p.subtitle}</span>
                   </p>
                 </div>
 
@@ -112,7 +115,9 @@ export function Projects() {
                     <a
                       href={p.repo}
                       target="_blank"
-                      rel="noreferrer noopener"
+                      rel="noopener noreferrer"
+                      itemProp="codeRepository"
+                      aria-label={`View source code for ${p.title} on GitHub`}
                       className="brut-sm brut-press ml-auto inline-flex items-center gap-1.5 bg-ink px-2.5 py-1.5 font-mono text-[11px] font-bold uppercase text-paper"
                     >
                       Code

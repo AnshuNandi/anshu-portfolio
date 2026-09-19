@@ -5,15 +5,26 @@ on:
     - cron: '0 0 * * *' # Run daily at midnight UTC
   workflow_dispatch: # Allow manual trigger
 
+# Top-level permissions: deny everything by default.
+# Each job grants only what it explicitly needs.
+permissions: {}
+
 jobs:
   update-stats:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Principle of Least Privilege: explicitly restrict all permissions,
+    # granting only what this job actually needs.
+    permissions:
+      contents: read
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        # Pinned to exact commit SHA to prevent supply chain attacks.
+        # Tag v4 is mutable — a compromised maintainer could push malicious code to it.
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '24'
 
@@ -26,7 +37,12 @@ jobs:
       - name: Trigger Vercel Revalidation Webhook
         env:
           REVALIDATION_TOKEN: ${{ secrets.REVALIDATION_TOKEN }}
+          PROD_URL: ${{ secrets.PROD_URL }}
         run: |
-          curl -X POST "https://anshu-nandi.vercel.app/api/revalidate" \
+          curl --fail --silent --show-error \
+            --proto '=https' \
+            --max-time 30 \
+            -X POST "$PROD_URL/api/revalidate" \
             -H "Authorization: Bearer $REVALIDATION_TOKEN" \
             -H "Content-Type: application/json"
+

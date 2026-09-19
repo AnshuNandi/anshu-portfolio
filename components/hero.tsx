@@ -129,7 +129,8 @@ export async function Hero() {
             <a
               href={profile.github}
               target="_blank"
-              rel="noreferrer noopener"
+              rel="noopener noreferrer"
+              aria-label="View Anshu Nandi's GitHub profile (opens in new tab)"
               className="brut brut-hover brut-press inline-flex items-center gap-2 bg-card px-5 py-3 font-display text-sm uppercase tracking-wide"
             >
               GitHub
@@ -149,10 +150,11 @@ export async function Hero() {
             <div className="relative w-full overflow-hidden border-[3px] border-ink bg-muted">
               <Image
                 src="/images/portrait.png"
-                alt="Portrait of Anshu Nandi"
+                alt="Portrait of Anshu Nandi, Agentic AI and Full-Stack Engineer"
                 width={800}
                 height={800}
                 priority
+                sizes="(max-width: 640px) 288px, (max-width: 1024px) 320px, 384px"
                 className="aspect-[4/5] w-full object-cover object-top grayscale-[20%] contrast-125"
               />
             </div>

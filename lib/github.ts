@@ -13,10 +13,14 @@ export async function getGithubStats() {
 
       if (res.ok) {
         const gist = await res.json();
-        const file = gist.files['github-stats.json'];
+        const file = gist.files?.['github-stats.json'];
         
-        if (file && file.content) {
-          return JSON.parse(file.content);
+        if (file && typeof file.content === 'string') {
+          const parsed = JSON.parse(file.content);
+          // Validate it's a plain object before trusting the Gist content
+          if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+            return parsed;
+          }
         }
       }
     } catch (e) {

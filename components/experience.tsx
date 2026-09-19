@@ -39,7 +39,7 @@ export function Experience() {
                   swatch[e.color].bg,
                 )}
               />
-              <article itemScope itemType="https://schema.org/Organization" className="brut brut-hover bg-card">
+              <article itemProp="item" itemScope itemType="https://schema.org/Organization" className="brut brut-hover bg-card">
                 <div className="flex flex-wrap items-center gap-3 border-b-[3px] border-ink bg-goog-blue px-4 py-3 text-primary-foreground">
                   <Briefcase className="size-5 shrink-0" strokeWidth={2.75} />
                   <h3 className="font-display text-base uppercase leading-tight sm:text-xl">

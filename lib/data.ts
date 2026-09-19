@@ -18,9 +18,11 @@ export const profile = {
   altEmail: 'anshu.nandi07@gmail.com',
   phone: '+91 70038 02901',
   github: 'https://github.com/AnshuNandi',
-  linkedin: 'https://linkedin.com/in/anshu-nandi',
+  linkedin: 'https://www.linkedin.com/in/anshu-nandi/',
   leetcode: 'https://leetcode.com/u/anshunandi/',
   discord: 'https://discordapp.com/users/765922353632772127',
+  twitter: 'https://x.com/Anshu_Nandi007',
+  instagram: 'https://www.instagram.com/anshu.nandi07/',
   tagline:
     'Architecting enterprise-grade Agentic AI systems & distributed full-stack applications.',
 }
