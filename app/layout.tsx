@@ -135,7 +135,7 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${_spaceGrotesk.variable} ${_archivoBlack.variable} ${_jetBrainsMono.variable} antialiased overflow-x-hidden`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange nonce={nonce}>
           {children}
         </ThemeProvider>
       </body>
