@@ -82,8 +82,24 @@ export function Contact() {
   return (
     <Section id="contact" className="relative border-b-[3px] border-ink bg-muted overflow-hidden">
       {/* backdrop */}
-      <div aria-hidden="true" className="grid-paper absolute inset-0" />
+      <div aria-hidden="true" className="grid-paper absolute inset-0 z-0" />
       
+      {/* Google I/O Authentic Graphics - Edge Anchored (Responsive) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        {/* Faint green glow anchoring the bottom of the contact form */}
+        <div className="absolute -bottom-[100px] md:-bottom-[200px] left-1/2 -translate-x-1/2 w-[300px] md:w-[600px] h-[150px] md:h-[300px] rounded-full bg-[var(--goog-green)] opacity-[0.12] blur-3xl" />
+        
+        {/* Blue plus grid tucked into the top left */}
+        <div className="absolute top-[5%] left-[2%] w-[100px] md:w-[200px] h-[100px] md:h-[200px] opacity-[0.20]"
+             style={{ 
+               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M18 10v20h4V10zM10 18v4h20v-4z' fill='%234285f4' /%3E%3C/svg%3E")`, 
+               backgroundSize: '40px 40px' 
+             }} />
+             
+        {/* Yellow quarter circle top right */}
+        <div className="absolute -top-[25px] md:-top-[50px] -right-[25px] md:-right-[50px] w-[100px] md:w-[200px] h-[100px] md:h-[200px] rounded-bl-full bg-[var(--goog-yellow)] opacity-[0.25]" />
+      </div>
+
       <div className="relative z-10 flex flex-col gap-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading index="06" kicker="Say hello" title="Let's build something" color="green" />

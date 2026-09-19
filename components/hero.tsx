@@ -17,7 +17,20 @@ export async function Hero() {
   return (
     <section id="top" className="relative overflow-hidden border-b-[3px] border-ink">
       {/* backdrop */}
-      <div aria-hidden="true" className="grid-paper absolute inset-0" />
+      <div aria-hidden="true" className="grid-paper absolute inset-0 z-0" />
+      
+      {/* Google I/O Authentic Graphics - Edge Anchored (Responsive) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        {/* Solid red half-pill tucked away on the far left edge */}
+        <div className="absolute top-[20%] -left-[60px] md:-left-[100px] w-[100px] md:w-[150px] h-[200px] md:h-[300px] rounded-r-full bg-[var(--goog-red)] opacity-20" />
+        
+        {/* Subtle grid of yellow crosses (+) on the far right */}
+        <div className="absolute top-[5%] right-[2%] w-[200px] md:w-[400px] h-[200px] md:h-[400px] opacity-[0.25]"
+             style={{ 
+               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M18 10v20h4V10zM10 18v4h20v-4z' fill='%23fbbc05' /%3E%3C/svg%3E")`, 
+               backgroundSize: '40px 40px' 
+             }} />
+      </div>
       
       {/* Animated Corner Papers */}
       <div

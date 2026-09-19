@@ -15,7 +15,23 @@ export function Skills() {
   return (
     <Section id="skills" className="relative border-b-[3px] border-ink bg-muted overflow-hidden">
       {/* backdrop */}
-      <div aria-hidden="true" className="dots absolute inset-0 opacity-50" />
+      <div aria-hidden="true" className="dots absolute inset-0 opacity-50 z-0" />
+      
+      {/* Google I/O Authentic Graphics - Edge Anchored (Responsive) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        {/* Massive, faint blue glow anchored to the bottom edge */}
+        <div className="absolute -bottom-[200px] md:-bottom-[300px] left-1/2 -translate-x-1/2 w-[400px] md:w-[800px] h-[300px] md:h-[400px] rounded-[100%] bg-[var(--goog-blue)] opacity-[0.15] blur-3xl" />
+        
+        {/* Subtle green plus grid tucked into the top left corner */}
+        <div className="absolute top-[5%] left-[2%] w-[100px] md:w-[200px] h-[100px] md:h-[200px] opacity-[0.20]"
+             style={{ 
+               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M18 10v20h4V10zM10 18v4h20v-4z' fill='%2334a853' /%3E%3C/svg%3E")`, 
+               backgroundSize: '40px 40px' 
+             }} />
+             
+        {/* Subtle yellow quarter circle top right */}
+        <div className="absolute -top-[25px] md:-top-[50px] -right-[25px] md:-right-[50px] w-[100px] md:w-[200px] h-[100px] md:h-[200px] rounded-bl-full border-[2px] md:border-[4px] border-[var(--goog-yellow)] opacity-[0.25]" />
+      </div>
       
       <div className="relative z-10 flex flex-col gap-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">

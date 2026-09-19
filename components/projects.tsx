@@ -5,8 +5,31 @@ import { cn } from '@/lib/utils'
 
 export function Projects() {
   return (
-    <Section id="projects" className="relative border-b-[3px] border-ink bg-muted">
-      <div aria-hidden="true" className="grid-paper pointer-events-none absolute inset-0" />
+    <Section id="projects" className="relative border-b-[3px] border-ink bg-muted overflow-hidden">
+      <div aria-hidden="true" className="grid-paper pointer-events-none absolute inset-0 z-0" />
+      
+      {/* Google I/O Authentic Graphics - Edge Anchored (Responsive) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        {/* Faint yellow quarter circle tucked into the top right corner */}
+        <div className="absolute -top-[50px] md:-top-[100px] -right-[50px] md:-right-[100px] w-[150px] md:w-[300px] h-[150px] md:h-[300px] bg-[var(--goog-yellow)] opacity-30 rounded-bl-full" />
+        
+        {/* Subtle green plus grid center right edge */}
+        <div className="absolute top-[50%] -right-[2%] w-[75px] md:w-[150px] h-[75px] md:h-[150px] opacity-40"
+             style={{ 
+               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M14 6v18h2V6zM6 14v2h18v-2z' fill='%2334a853' /%3E%3C/svg%3E")`, 
+               backgroundSize: '30px 30px'
+             }} />
+        {/* Subtle blue hollow circle on far left edge */}
+        <div className="absolute top-[20%] -left-[50px] md:-left-[100px] w-[100px] md:w-[200px] h-[100px] md:h-[200px] rounded-full border-[3px] md:border-[6px] border-[var(--goog-blue)] opacity-30" />
+        
+        {/* Subtle red plus grid on the bottom left edge */}
+        <div className="absolute bottom-[5%] left-[2%] w-[75px] md:w-[150px] h-[75px] md:h-[150px] opacity-30"
+             style={{ 
+               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M14 6v18h2V6zM6 14v2h18v-2z' fill='%23ea4335' /%3E%3C/svg%3E")`, 
+               backgroundSize: '30px 30px' 
+             }} />
+      </div>
+
       <div className="relative flex flex-col gap-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading index="04" kicker="Selected work" title="Engineering portfolio" color="yellow" />

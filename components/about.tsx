@@ -7,7 +7,23 @@ export function About() {
   return (
     <Section id="about" className="relative border-b-[3px] border-ink overflow-hidden">
       {/* backdrop */}
-      <div aria-hidden="true" className="diagonal-grid absolute inset-0" />
+      <div aria-hidden="true" className="diagonal-grid absolute inset-0 z-0" />
+      
+      {/* Google I/O Authentic Graphics - Edge Anchored (Responsive) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        {/* Yellow Quarter Circle pushed to the absolute bottom left corner */}
+        <div className="absolute -bottom-[25px] md:-bottom-[50px] -left-[25px] md:-left-[50px] w-[150px] md:w-[300px] h-[150px] md:h-[300px] bg-[var(--goog-yellow)] opacity-30 rounded-tr-full" />
+        
+        {/* Subtle hollow green circle anchoring the top right margin */}
+        <div className="absolute top-[10%] -right-[100px] md:-right-[150px] w-[200px] md:w-[300px] h-[200px] md:h-[300px] rounded-full border-[4px] md:border-[8px] border-[var(--goog-green)] opacity-30" />
+        
+        {/* Subtle red plus grid on the bottom right edge */}
+        <div className="absolute bottom-[20%] right-[2%] w-[100px] md:w-[150px] h-[100px] md:h-[150px] opacity-[0.25]"
+             style={{ 
+               backgroundImage: `url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath d='M14 6v18h2V6zM6 14v2h18v-2z' fill='%23ea4335' /%3E%3C/svg%3E")`, 
+               backgroundSize: '30px 30px' 
+             }} />
+      </div>
       
       <div className="relative z-10 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
         <div className="flex flex-col gap-6">
