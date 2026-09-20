@@ -51,7 +51,7 @@ export function SiteNav() {
         >
           <a
             href="#top"
-            className="brut-sm brut-hover flex shrink-0 items-center gap-2 bg-ink px-2 py-1"
+            className="brut-sm brut-hover brut-press flex shrink-0 items-center gap-2 bg-ink px-2 py-1"
           >
             <span className="font-display text-lg leading-none text-paper">AN</span>
             <span className="hidden font-mono text-[10px] leading-tight font-bold tracking-widest text-goog-yellow sm:block">
@@ -97,7 +97,7 @@ export function SiteNav() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="GitHub profile"
-              className="brut-sm brut-hover hidden size-9 place-items-center bg-goog-blue text-primary-foreground sm:grid"
+              className="brut-sm brut-hover brut-press hidden size-9 place-items-center bg-goog-blue text-primary-foreground sm:grid"
             >
               <GithubIcon className="size-4" />
             </a>
@@ -106,7 +106,7 @@ export function SiteNav() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="LinkedIn profile"
-              className="brut-sm brut-hover hidden size-9 place-items-center bg-goog-green text-primary-foreground sm:grid"
+              className="brut-sm brut-hover brut-press hidden size-9 place-items-center bg-goog-green text-primary-foreground sm:grid"
             >
               <LinkedinIcon className="size-4" />
             </a>

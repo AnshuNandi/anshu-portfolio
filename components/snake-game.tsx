@@ -234,7 +234,7 @@ export function SnakeGame({ weeks, children }: { weeks?: any[], children?: React
         {!isPlaying ? (
           <button 
             onClick={startGame}
-            className="brut-sm brut-hover flex items-center gap-2 bg-goog-blue px-3 py-1.5 text-xs font-bold uppercase text-primary-foreground"
+            className="brut-sm brut-hover brut-press flex items-center gap-2 bg-goog-blue px-3 py-1.5 text-xs font-bold uppercase text-primary-foreground"
           >
             <Gamepad2 className="size-4" />
             Play Snake
@@ -242,7 +242,7 @@ export function SnakeGame({ weeks, children }: { weeks?: any[], children?: React
         ) : !(gameOver || won) && (
           <button 
             onClick={quitGame}
-            className="brut-sm brut-hover flex items-center gap-1 bg-goog-red px-3 py-1.5 text-xs font-bold uppercase text-primary-foreground"
+            className="brut-sm brut-hover brut-press flex items-center gap-1 bg-goog-red px-3 py-1.5 text-xs font-bold uppercase text-primary-foreground"
           >
             <X className="size-4" strokeWidth={3} />
             Quit
@@ -281,14 +281,14 @@ export function SnakeGame({ weeks, children }: { weeks?: any[], children?: React
             <div className="flex items-center gap-2 shrink-0 w-full sm:w-auto justify-end mt-1 sm:mt-0">
               <button
                 onClick={quitGame}
-                className="brut-sm brut-hover flex items-center gap-1.5 px-3 py-2 font-display text-xs uppercase tracking-widest bg-muted text-muted-foreground"
+                className="brut-sm brut-hover brut-press flex items-center gap-1.5 px-3 py-2 font-display text-xs uppercase tracking-widest bg-muted text-muted-foreground"
               >
                 Quit
               </button>
               <button
                 onClick={startGame}
                 className={cn(
-                  "brut-sm brut-hover flex items-center gap-1.5 px-4 py-2 font-display text-xs uppercase tracking-widest",
+                  "brut-sm brut-hover brut-press flex items-center gap-1.5 px-4 py-2 font-display text-xs uppercase tracking-widest",
                   won ? "bg-goog-green text-ink-static" : "bg-goog-yellow text-ink-static"
                 )}
               >

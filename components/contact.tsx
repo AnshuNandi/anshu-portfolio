@@ -147,7 +147,7 @@ export function Contact() {
             <div className="grid gap-4 sm:grid-cols-2">
               <a
                 href={`tel:${profile.phone.replace(/\s/g, '')}`}
-                className="brut brut-hover flex items-center gap-3 bg-card p-4"
+                className="brut brut-hover brut-press flex items-center gap-3 bg-card p-4"
               >
                 <span className="brut-sm grid size-10 shrink-0 place-items-center bg-goog-blue text-primary-foreground">
                   <Phone className="size-4" strokeWidth={2.75} />
@@ -161,7 +161,7 @@ export function Contact() {
               </a>
               <a
                 href={`mailto:${profile.altEmail}`}
-                className="brut brut-hover flex items-center gap-3 bg-card p-4"
+                className="brut brut-hover brut-press flex items-center gap-3 bg-card p-4"
               >
                 <span className="brut-sm grid size-10 shrink-0 place-items-center bg-goog-red text-primary-foreground">
                   <Mail className="size-4" strokeWidth={2.75} />
