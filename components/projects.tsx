@@ -36,10 +36,10 @@ export function Projects() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View all GitHub repositories for Anshu Nandi"
-            className="brut brut-hover brut-press inline-flex w-fit items-center gap-2 bg-ink px-4 py-3 font-display text-sm uppercase text-paper"
+            className="brut brut-hover brut-press inline-flex w-fit items-center gap-1.5 bg-ink px-3 py-2 font-display text-xs uppercase text-paper"
           >
             View all repos
-            <ArrowUpRight className="size-4" strokeWidth={3} />
+            <ArrowUpRight className="size-3.5" strokeWidth={3} />
           </a>
         </div>
 
