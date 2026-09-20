@@ -17,7 +17,7 @@ export function ThemeToggle({ className }: { className?: string }) {
     <button
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
       className={cn(
-        'brut-sm brut-press grid size-9 place-items-center bg-ink text-paper transition-colors hover:opacity-80',
+        'brut-sm brut-hover brut-press grid size-9 place-items-center bg-ink text-paper transition-colors hover:opacity-80',
         className,
       )}
       aria-label="Toggle dark mode"

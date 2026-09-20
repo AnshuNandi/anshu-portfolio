@@ -123,7 +123,7 @@ export function SiteNav() {
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={open ? 'Close menu' : 'Open menu'}
-              className="brut-sm brut-press grid size-9 place-items-center bg-goog-red text-primary-foreground md:hidden"
+              className="brut-sm brut-hover brut-press grid size-9 place-items-center bg-goog-red text-primary-foreground md:hidden"
             >
               {open ? <X className="size-4" strokeWidth={3} /> : <Menu className="size-4" strokeWidth={3} />}
             </button>
