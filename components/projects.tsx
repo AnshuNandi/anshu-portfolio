@@ -32,13 +32,13 @@ export function Projects() {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionHeading index="04" kicker="Selected work" title="Engineering portfolio" color="yellow" />
           <a
-            href={profile.github}
+            href={`${profile.github}?tab=repositories`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="View all GitHub repositories for Anshu Nandi"
             className="brut brut-hover brut-press inline-flex w-fit items-center gap-2 bg-ink px-4 py-3 font-display text-sm uppercase text-paper"
           >
-            All 25 repos
+            View all repos
             <ArrowUpRight className="size-4" strokeWidth={3} />
           </a>
         </div>
