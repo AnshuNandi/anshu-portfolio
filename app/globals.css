@@ -135,11 +135,6 @@
     transform: translate(-1.5px, -1.5px);
     box-shadow: 6px 6px 0 0 var(--ink);
   }
-  .brut-press:active {
-    transform: translate(3px, 3px);
-    box-shadow: 0 0 0 0 var(--ink);
-  }
-
   /* Dark mode: soften shadow intensity so it reads as depth, not glow */
   .dark .brut {
     box-shadow: 6px 6px 0 0 oklch(0.93 0.006 85 / 0.65);
@@ -155,6 +150,18 @@
   }
   .dark .brut-sm.brut-hover:hover {
     box-shadow: 6px 6px 0 0 oklch(0.93 0.006 85 / 0.65);
+  }
+
+  /* Active states must come LAST in the cascade to correctly override hover and dark mode */
+  .brut-press:active,
+  .brut-hover.brut-press:active,
+  .brut-sm.brut-hover.brut-press:active,
+  .dark .brut.brut-press:active,
+  .dark .brut-sm.brut-press:active,
+  .dark .brut-hover.brut-press:active,
+  .dark .brut-sm.brut-hover.brut-press:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0 0 0 0 transparent;
   }
 
   .paper-shadow {
